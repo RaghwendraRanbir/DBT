@@ -6,6 +6,12 @@ name: 'my_new_project'
 version: '1.0.0'
 config-version: 2
 
+vars:
+  my_first_var: True
+  my_second_var: 2020
+  my_third_var: 3
+
+
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
 
@@ -35,8 +41,8 @@ models:
   my_new_project:
     # Applies to all files under models/example/
     example:
-
       materialized: table
+     
 # =======
 #       materialized: view
 # >>>>>>> 563e6f4b3f44e49f4606a4f4798805bdbe848905
