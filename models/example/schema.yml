@@ -19,7 +19,7 @@ models:
             tests:
                 - unique
                 - not_null
-
+                
     - name: INCREMENTAL
       description: "A starter dbt model"
       columns:
@@ -28,3 +28,4 @@ models:
             tests:
                 - unique
                 - not_null
+

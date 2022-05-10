@@ -35,4 +35,8 @@ models:
   my_new_project:
     # Applies to all files under models/example/
     example:
+<<<<<<< HEAD
       materialized: table
+=======
+      materialized: view
+>>>>>>> 563e6f4b3f44e49f4606a4f4798805bdbe848905
