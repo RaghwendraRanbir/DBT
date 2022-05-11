@@ -12,14 +12,14 @@
 
 */
 
-{{ config(materialized='table',alias='First_model',schema='ranbir_test') }}
+{{ config(materialized='table') }}
 
 
 
 
 with source_data as (
 
-    select 1 as id,'CA' as state,'2022-05-11 01:25:22.617'::timestamp as updated_at
+    select 1 as id,'SA' as state,'2022-05-11 01:29:22.617'::timestamp as updated_at
     union all
     select null as id ,'CT' as state,'2022-05-11 01:25:22.617'::timestamp as updated_at
     union all
