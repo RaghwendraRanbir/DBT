@@ -9,4 +9,5 @@ left join
 {{source('sample','ORDERS')}} o
 -- "SNOWFLAKE_SAMPLE_DATA"."TPCH_SF1"."ORDERS" o
 on c.C_CUSTKEY=o.O_CUSTKEY
-GROUP BY 1,2,3
+{{group_by(3)}}
+---GROUP BY 1,2,3
