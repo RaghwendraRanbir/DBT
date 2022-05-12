@@ -29,3 +29,16 @@ models:
                 - unique
                 - not_null
 
+sources:
+  - name: sample
+    database: snowflake_sample_data
+    schema: tpch_sf1
+    tables:
+     - name: CUSTOMER
+       columns:
+        - name: c_custkey
+          tests:
+           - unique
+           - not_null
+
+     - name: ORDERS

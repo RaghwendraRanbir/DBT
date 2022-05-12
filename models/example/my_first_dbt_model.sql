@@ -6,15 +6,24 @@
 
     Try changing "table" to "view" below
     we cant create database from dbt, just create and grant in snowflakes
+    
+    -- config(post_hook=["grant select on {{ this }} to role reporter"])
+    config(materialized='table',alias='First_model',schema='ranbir_test',database='analytics_test')
+
 */
 
-{{ config(materialized='table',alias='First_model',schema='ranbir_test',database='analytics_test') }}
+{{ config(materialized='table') }}
+
+
+
 
 with source_data as (
 
-    select 1 as id
+    select 1 as id,'SA' as state,'2022-05-11 01:29:22.617'::timestamp as updated_at
     union all
-    select null as id
+    select null as id ,'CT' as state,'2022-05-11 01:25:22.617'::timestamp as updated_at
+    union all
+    select 3 as id, 'CP' as state,'2022-05-11 01:25:22.617'::timestamp as updated_at
 
 )
 

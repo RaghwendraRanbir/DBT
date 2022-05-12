@@ -29,8 +29,12 @@ target-path: "target"  # directory which will store compiled SQL files
 clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
-
-
+on-run-start:
+  - "create table if not exists DATA_TO_INSIGHTS.DBT_RRANBIR.audit (model text,state text,time timestamp_ltz)"
+on-run-end:                #Hook grant schema
+ - 'grant usage on schema DATA_TO_INSIGHTS.DBT_RRANBIR_RANBIR_TEST to role FIVETRAN_Role'
+ - 'grant select on all tables in schema DATA_TO_INSIGHTS.DBT_RRANBIR to role FIVETRAN_Role'
+ - 'grant select on all views in schema DATA_TO_INSIGHTS.DBT_RRANBIR to role FIVETRAN_Role'
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
@@ -42,6 +46,8 @@ models:
     # Applies to all files under models/example/
     example:
       materialized: table
+      pre-hook: "insert into DATA_TO_INSIGHTS.DBT_RRANBIR.audit(model,state,time) values('{{this.name}}','starting model deployment',current_timestamp)"
+      
      
 # =======
 #       materialized: view
