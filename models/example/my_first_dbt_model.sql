@@ -8,7 +8,8 @@
     we cant create database from dbt, just create and grant in snowflakes
     
     -- config(post_hook=["grant select on {{ this }} to role reporter"])
-    config(materialized='table',alias='First_model',schema='ranbir_test',database='analytics_test')
+    config(materialized='table',alias='First_model',schema='ranbir_test',database='analytics_test',tags='nightly')
+    dbt run --model tag:nightly
 
 */
 
