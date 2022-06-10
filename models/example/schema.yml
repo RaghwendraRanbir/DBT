@@ -45,3 +45,20 @@ sources:
            - not_null
 
      - name: ORDERS
+  - name: dim_camp
+    database: DATA_TO_INSIGHTS
+    schema: DATA_TO_INSIGHTS_RAW
+    tables:
+     - name: STG_CAMPAIGN
+
+# sources:
+#   - name: dim_camp
+#     database: DATA_TO_INSIGHTS
+#     schema: DATA_TO_INSIGHTS_RAW
+#     tables:
+#      - name: STG_CAMPAIGN
+#       #  columns:
+#       #   - name: c_custkey
+#       #     tests:
+#       #      - unique
+#       #      - not_null
