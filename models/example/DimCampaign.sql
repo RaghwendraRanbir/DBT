@@ -3,7 +3,7 @@
         materialized='incremental')
 }}
 select 
-ROW_NUMBER() OVER (ORDER BY CampaignID) AS CampaignID,
+ROW_NUMBER() OVER (ORDER BY CAMPAIGN_ID) AS CAMPAIGN_ID,
 CAMPAIGN_ID	AS CampaignSourceKey,
 CUSTOMER_ID	AS CUSTOMER_ID,
 FIRST_NAME	AS FIRST_NAME,
